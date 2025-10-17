@@ -1,0 +1,98 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/Logo-XSJ-removebg-preview.png';
+
+const { pathname } = Astro.url;
+---
+<header class="bg-background/80 backdrop-blur-sm sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center p-4 border-b border-white/10">
+    
+    <a href="/" class="hover:opacity-80 transition-opacity z-10">
+      <Image 
+        src={logo} 
+        alt="XSJ Cues Logo" 
+        class="w-24 h-auto" 
+      />
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <nav class="flex items-center gap-8 font-heading text-sm tracking-widest uppercase">
+        <a href="/" class:list={["transition-colors", pathname === "/" ? "text-accent" : "text-text-primary hover:text-accent"]}>
+          Home
+        </a>
+        <a href="/products" class:list={["transition-colors", pathname.startsWith("/products") ? "text-accent" : "text-text-primary hover:text-accent"]}>
+          Products
+        </a>
+        <a href="/about" class:list={["transition-colors", pathname.startsWith("/about") ? "text-accent" : "text-text-primary hover:text-accent"]}>
+          About Us
+        </a>
+      </nav>
+      <a href="https://wa.me/+6282117822453" target="_blank" class="border border-accent/30 text-accent/70 px-4 py-2 rounded-sm text-sm font-bold uppercase tracking-wider hover:bg-accent hover:text-black hover:border-accent transition-colors">
+        Contact Us
+      </a>
+    </div>
+
+    <button id="menu-toggle-btn" class="md:hidden p-2 z-10">
+      <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+        <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div 
+  id="mobile-menu" 
+  class="mobile-menu fixed inset-0 bg-background/90 backdrop-blur-md z-40"
+>
+  <nav class="flex flex-col items-center justify-center h-full gap-8 font-heading text-3xl tracking-widest uppercase">
+    <a href="/" class:list={["transition-colors", pathname === "/" ? "text-accent" : "text-text-primary hover:text-accent"]}>Home</a>
+    <a href="/products" class:list={["transition-colors", pathname.startsWith("/products") ? "text-accent" : "text-text-primary hover:text-accent"]}>Products</a>
+    <a href="/about" class:list={["transition-colors", pathname.startsWith("/about") ? "text-accent" : "text-text-primary hover:text-accent"]}>About Us</a>
+    <a href="https://wa.me/+6282117822453" target="_blank" class="mt-4 border border-accent text-accent px-6 py-3 rounded-sm text-xl hover:bg-accent hover:text-black transition-colors">
+      Contact Us
+    </a>
+  </nav>
+</div>
+
+<style>
+  .mobile-menu {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  .mobile-menu.is-open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+
+<script>
+  const menuToggleBtn = document.getElementById('menu-toggle-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const openIcon = document.getElementById('menu-open-icon');
+  const closeIcon = document.getElementById('menu-close-icon');
+  
+  if (menuToggleBtn && mobileMenu && openIcon && closeIcon) {
+    menuToggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('is-open');
+      
+      openIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden');
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) { 
+        mobileMenu.classList.remove('is-open');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+    });
+  }
+</script>

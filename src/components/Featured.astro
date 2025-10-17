@@ -1,0 +1,71 @@
+---
+import ProductCard from './ProductCard.astro';
+import type { Cue } from '../types';
+interface Props { cues: Cue[]; }
+const { cues } = Astro.props;
+---
+<section id="featured-products" class="my-24 sm:my-32">
+  <div class="text-center max-w-2xl mx-auto px-4">
+    <p class="font-heading text-sm uppercase tracking-widest text-accent">Our Finest Selection</p>
+    <h2 class="font-heading text-4xl md:text-5xl mt-2 tracking-wider uppercase">
+      Featured Products
+    </h2>
+    <p class="text-text-secondary mt-4">
+      Explore our curated collection of high-performance shafts and butts, meticulously chosen for every player.
+    </p>
+
+    <div id="category-toggle" class="inline-flex items-center bg-background p-1 rounded-md mt-8 border border-white/10">
+      <button data-filter="butt" class="toggle-btn active-btn font-bold text-sm px-6 py-2 rounded">Butts</button>
+      <button data-filter="shaft" class="toggle-btn font-bold text-sm px-6 py-2 rounded">Shafts</button>
+    </div>
+  </div>
+
+  <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto px-4">
+    {cues.map(cue => (
+      <div data-category={cue.category}>
+        <ProductCard cue={cue} />
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .active-btn {
+    background-color: var(--color-accent);
+    color: black;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleButtons = document.querySelectorAll<HTMLElement>('.toggle-btn');
+    const productCards = document.querySelectorAll<HTMLElement>('#product-grid > div'); 
+    let activeFilter = 'butt'; 
+
+    function filterProducts() {
+      productCards.forEach(card => {
+        if (card.dataset.category === activeFilter) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+  const newFilter = button.dataset.filter;
+  if (newFilter) {
+    document.querySelector('.active-btn')?.classList.remove('active-btn');
+    button.classList.add('active-btn');
+
+
+    activeFilter = newFilter;
+    filterProducts();
+      }
+    });
+  });
+
+    filterProducts();
+  });
+</script>

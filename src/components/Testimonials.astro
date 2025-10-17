@@ -1,0 +1,72 @@
+---
+import { allTestimonials } from '../data/testimonials';
+---
+<section class="py-16 sm:py-24">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-end mb-12">
+      <div>
+        <p class="font-heading text-sm uppercase tracking-widest text-accent">From The Players</p>
+        <h2 class="font-heading text-4xl md:text-5xl mt-2 tracking-wider uppercase">
+          What Our Clients Say
+        </h2>
+      </div>
+      <div class="hidden md:flex gap-2">
+        <button id="scroll-left" class="border border-white/20 text-white/50 p-2 rounded-md hover:bg-accent hover:text-black transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button id="scroll-right" class="border border-white/20 text-white/50 p-2 rounded-md hover:bg-accent hover:text-black transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="testimonial-slider" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide gap-8 pb-4">
+      {allTestimonials.map(testimonial => (
+        <div class="relative flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 snap-start bg-white/5 p-8 rounded-lg border border-white/10 transition-all duration-300 hover:border-accent hover:z-10">
+          <div class="text-accent mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21h1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c.25 0 .25 .25.25 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21h1z"/></svg>
+          </div>
+          <p class="text-text-secondary italic">"{testimonial.quote}"</p>
+          <div class="flex items-center mt-6">
+            <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center font-bold text-accent text-lg">
+              {testimonial.name.charAt(0)}
+            </div>
+            <div class="ml-4">
+              <p class="font-bold text-text-primary">{testimonial.name}</p>
+              <p class="text-text-secondary text-sm">{testimonial.title}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<script>
+  const slider = document.getElementById('testimonial-slider');
+  const scrollLeftBtn = document.getElementById('scroll-left');
+  const scrollRightBtn = document.getElementById('scroll-right');
+
+  if (slider && scrollLeftBtn && scrollRightBtn) {
+    const scrollAmount = () => {
+        const firstCard = slider.querySelector('div');
+        if (firstCard) {
+            return firstCard.offsetWidth + 32;
+        }
+        return 300; 
+    };
+    
+    scrollLeftBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    });
+
+    scrollRightBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+    });
+  }
+</script>

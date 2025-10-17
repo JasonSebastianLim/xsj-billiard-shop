@@ -1,0 +1,64 @@
+<section class="py-16 sm:py-24">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      
+      <div id="map-container" class="aspect-video md:aspect-square rounded-md border border-white/10 z-0"></div>
+      
+      <div class="text-left">
+        <p class="font-heading text-sm uppercase tracking-widest text-accent">Personal Service</p>
+        <h2 class="font-heading text-3xl md:text-4xl mt-2 tracking-wider uppercase text-text-primary">
+          Meet & Greet Delivery
+        </h2>
+        <p class="text-text-secondary mt-6 leading-relaxed">
+          Experience our signature service. For clients in the Jakarta area, we offer a unique and convenient way to receive your new cue.
+        </p>
+        <div class="mt-6 space-y-4">
+          <div class="relative pl-8">
+            <div class="absolute top-1 left-0 w-5 h-5 text-accent">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <h3 class="font-bold text-text-primary">Complimentary Delivery</h3>
+            <p class="text-sm text-text-secondary" set:html={'We offer free personal delivery to convenient public locations within <strong>West Jakarta (Jakarta Barat)</strong> and <strong>North Jakarta (Jakarta Utara)</strong>.'} />
+          </div>
+          <div class="relative pl-8">
+            <div class="absolute top-1 left-0 w-5 h-5 text-accent">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <h3 class="font-bold text-text-primary">Personal Handover</h3>
+            <p class="text-sm text-text-secondary">Even if you're coming from another area, you can pick a spot like a mall or cafe in our service zones, and I, Kenrick Ziven Chen, will personally meet you to hand over your cue.</p>
+          </div>
+        </div>
+        <a href="https://wa.me/+6282117822453" target="_blank" class="inline-block mt-8 border border-accent/30 text-accent/70 px-6 py-3 rounded-sm text-sm font-bold uppercase tracking-wider hover:bg-accent hover:text-black hover:border-accent transition-colors">
+          Schedule a Viewing
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  declare var L: any;
+  document.addEventListener('DOMContentLoaded', () => {
+
+    
+    if (typeof L === 'undefined') {
+      console.error('Leaflet.js is not loaded.');
+      return;
+    }
+
+    const map = L.map('map-container').setView([-6.20, 106.81], 11);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
+    }).addTo(map);
+
+    L.marker([-6.16, 106.76]).addTo(map)
+      .bindPopup('<b>West Jakarta (Jakarta Barat)</b><br>Meet-up zone.')
+      .openPopup();
+
+    L.marker([-6.13, 106.86]).addTo(map)
+      .bindPopup('<b>North Jakarta (Jakarta Utara)</b><br>Meet-up zone.');
+  });
+</script>

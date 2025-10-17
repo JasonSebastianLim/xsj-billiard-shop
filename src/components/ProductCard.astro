@@ -1,0 +1,44 @@
+---
+import type { Cue } from '../types';
+interface Props { cue: Cue; }
+const { cue } = Astro.props;
+---
+<a 
+  href={`/products/${cue.slug}`} 
+  class="group relative block aspect-[3/4] overflow-hidden rounded-md transition-all duration-500 hover:shadow-2xl hover:shadow-accent/20 hover:-translate-y-2"
+>
+  {cue.soldOut && (
+    <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold uppercase tracking-wider px-2 py-1 rounded z-20">
+      Sold Out
+    </div>
+  )}
+
+  <img 
+    src={cue.heroImage} 
+    alt={cue.title} 
+    class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+  />
+  
+  <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/60 to-transparent transition-colors duration-500 group-hover:from-background/95"></div>
+
+  {cue.brandLogo && (
+    <div class="absolute top-4 right-4 bg-black/30 backdrop-blur-sm p-2 rounded-md">
+      <img src={cue.brandLogo} alt={`${cue.title} brand logo`} class="h-6 w-auto" />
+    </div>
+  )}
+
+  <div class="relative flex flex-col justify-end h-full p-4 
+             transition-all duration-500 ease-in-out 
+             translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+  >
+    {cue.tagline && (
+      <p class="text-xs uppercase text-accent tracking-widest mb-1">{cue.tagline}</p>
+    )}
+    
+    <h3 class="font-heading text-2xl tracking-wider uppercase text-text-primary">{cue.title}</h3>
+    
+    <p class="text-sm text-text-secondary mt-2">{cue.description}</p>
+    
+    <p class="font-bold text-accent text-lg mt-4">Rp{cue.price.toLocaleString('id-ID')}</p>
+  </div>
+</a>

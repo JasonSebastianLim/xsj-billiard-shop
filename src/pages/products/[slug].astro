@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { allCues } from '../../data/cues.ts';
+import type { Cue } from '../../types';
+
+interface Props {
+  cue: Cue;
+}
+
+export async function getStaticPaths() {
+  return allCues.map((cue) => ({
+    params: { slug: cue.slug },
+    props: { cue },
+  }));
+}
+
+const { cue } = Astro.props;
+const gallery = cue.galleryImages && cue.galleryImages.length > 0 ? cue.galleryImages : [cue.heroImage];
+---
+
+<Layout title={cue.title}>
+  <div class="container mx-auto max-w-5xl px-4 py-16 sm:py-24">
+    <div class="mb-8 text-sm text-text-secondary">
+      <a href="/" class="hover:text-accent">Home</a> / <a href="/products" class="hover:text-accent">Products</a> / <span class="text-text-primary">{cue.title}</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+      
+      <div class="flex flex-col gap-4 md:sticky top-24">
+        <div class="aspect-square rounded-lg overflow-hidden border border-white/10">
+          <img 
+            id="main-image"
+            class="w-full h-full object-cover object-top" 
+            src={cue.heroImage} 
+            alt={cue.title} 
+          />
+        </div>
+        <div class="grid grid-cols-4 gap-4">
+          {gallery.map((imgSrc, index) => (
+            <button class="thumbnail-item aspect-square rounded-md overflow-hidden border-2 border-transparent transition-colors hover:border-accent" data-src={imgSrc}>
+              <img src={imgSrc} alt={`${cue.title} - view ${index + 1}`} class="w-full h-full object-cover object-top" />
+            </button>
+          ))}
+        </div>
+      </div>
+      
+      <div class="flex flex-col">
+        {cue.tagline && <p class="font-heading text-sm uppercase tracking-widest text-accent">{cue.tagline}</p>}
+        <h1 class="font-heading text-4xl lg:text-5xl mt-2 tracking-wider uppercase text-text-primary leading-tight">{cue.title}</h1>
+        <p class="text-3xl lg:text-4xl font-bold text-accent my-6">Rp{cue.price.toLocaleString('id-ID')}</p>
+        <p class="text-text-secondary leading-relaxed">{cue.description}</p>
+
+        {cue.specifications && (
+          <div class="mt-8 pt-6 border-t border-white/10">
+            <h3 class="font-heading text-lg uppercase tracking-wider text-text-primary mb-4">Specifications</h3>
+            <div class="space-y-3 text-sm">
+              {Object.entries(cue.specifications).map(([key, value]) => (
+                <div class="flex justify-between">
+                  <span class="text-text-secondary">{key}:</span>
+                  <span class="font-bold text-text-primary">{value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {cue.soldOut ? (
+          <div class="mt-8 pt-8 border-t border-white/10 text-center">
+            <p class="font-bold text-red-500 text-lg">This item is currently sold out.</p>
+            <p class="text-text-secondary text-sm mt-2">Please check back later or browse our other available cues.</p>
+          </div>
+        ) : (
+          <div class="flex flex-col sm:flex-row gap-4 mt-8 pt-8 border-t border-white/10">
+            <a href={cue.whatsappLink} target="_blank" class="w-full sm:w-auto flex-grow text-center bg-accent text-black font-bold uppercase py-3 px-6 rounded-sm transition-all duration-300 hover:bg-yellow-300 hover:scale-105 shadow-lg shadow-accent/20">
+              Order via WhatsApp
+            </a>
+            <a href={cue.facebookLink} target="_blank" class="w-full sm:w-auto flex-grow text-center border border-accent/30 text-accent/70 px-6 py-3 rounded-sm font-bold uppercase tracking-wider hover:bg-accent hover:text-black hover:border-accent transition-colors">
+              View on Facebook
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .active-thumbnail {
+    border-color: var(--color-accent);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mainImage = document.getElementById('main-image') as HTMLImageElement;
+    const thumbnails = document.querySelectorAll<HTMLButtonElement>('.thumbnail-item');
+
+    if (!mainImage || thumbnails.length === 0) return;
+
+    thumbnails[0]?.classList.add('active-thumbnail');
+
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const newSrc = thumb.dataset.src;
+        if (newSrc) {
+          mainImage.src = newSrc;
+          document.querySelector('.active-thumbnail')?.classList.remove('active-thumbnail');
+          thumb.classList.add('active-thumbnail');
+        }
+      });
+    });
+  });
+</script>

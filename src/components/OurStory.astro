@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import storySrc from '../assets/our-story.jpeg'; 
+---
+<section class="py-16 sm:py-24">
+  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div class="text-left">
+      <p class="font-heading text-sm uppercase tracking-widest text-accent">Our Story</p>
+      <h2 class="font-heading text-3xl md:text-4xl mt-2 tracking-wider uppercase text-text-primary">
+        A Passion for Perfection
+      </h2>
+      <p class="text-text-secondary mt-6 leading-relaxed border-l-2 border-accent/30 pl-6">
+        My journey began not as a seller, but as a player in constant search of the perfect cue. I learned that the right tool doesn't just improve your shot—it transforms your confidence.
+        <br/><br/>
+        XSJ Cues was born from that passion. It's a curated collection of the world's finest cues, each one personally vetted and chosen for its quality, performance, and craftsmanship. We've done the hard work so you can focus on what matters: your game.
+      </p>
+    </div>
+    <div class="aspect-video md:aspect-[4/5] rounded-md overflow-hidden">
+      <Image src={storySrc} alt="Atmospheric shot of a billiard table" class="w-full h-full object-cover" />
+    </div>
+  </div>
+</section>

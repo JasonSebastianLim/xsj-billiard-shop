@@ -1,0 +1,58 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # This collection controls your individual CUE PAGES ([slug].astro)
+  - name: "cues"
+    label: "Billiard Cues"
+    folder: "src/content/cues"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Cue Name", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Price (IDR)", name: "price", widget: "number" }
+      - { label: "Featured Image", name: "heroImage", widget: "image" }
+      - { label: "WhatsApp Link", name: "whatsappLink", widget: "string" }
+      - { label: "Facebook Marketplace Link", name: "facebookLink", widget: "string", required: false }
+      - { label: "Category", name: "category", widget: "select", options: ["butt", "shaft"] }
+      - { label: "Featured on Homepage?", name: "featured", widget: "boolean", default: false }
+      - { label: "Tagline (e.g., Limited Edition)", name: "tagline", widget: "string", required: false }
+      - { label: "Brand Logo", name: "brandLogo", widget: "image", required: false }
+      - { label: "Gallery Images", name: "galleryImages", widget: "list", field: { label: "Image", name: "image", widget: "image" }, required: false }
+      - { label: "Specifications", name: "specifications", widget: "object", fields: [
+          { label: "Brand", name: "brand", widget: "string", required: false },
+          { label: "Cue Type", name: "cue_type", widget: "string", required: false },
+          { label: "Joint Type", name: "joint_type", widget: "string", required: false },
+          { label: "Wrap Type", name: "wrap_type", widget: "string", required: false },
+          { label: "Shaft Material", name: "shaft_material", widget: "string", required: false },
+          { label: "Tip", name: "tip", widget: "string", required: false },
+          { label: "Weight", name: "weight", widget: "string", required: false }
+        ], required: false }
+      - { label: "Full Details", name: "body", widget: "markdown" }
+
+  # NEW: This collection controls the PROMOTIONS SECTION on the homepage
+  - name: "promotions"
+    label: "Promotions Section"
+    files:
+      - label: "Homepage Promotion"
+        name: "homepage"
+        file: "src/content/promotions/homepage.md"
+        fields:
+          - { label: "Tagline", name: "tagline", widget: "string", default: "Exclusive Offers" }
+          - { label: "Title", name: "title", widget: "string", default: "Elevate Your Game" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Feature 1 Title", name: "feature1_title", widget: "string" }
+          - { label: "Feature 1 Description", name: "feature1_description", widget: "string" }
+          - { label: "Feature 2 Title", name: "feature2_title", widget: "string" }
+          - { label: "Feature 2 Description", name: "feature2_description", widget: "string" }
+          - { label: "Primary Button Text", name: "button1_text", widget: "string", default: "Discover Offers" }
+          - { label: "Primary Button Link", name: "button1_link", widget: "string", default: "/promotions" }
+          - { label: "Secondary Button Text", name: "button2_text", widget: "string", default: "Contact Us" }
+          - { label: "Secondary Button Link", name: "button2_link", widget: "string", default: "/contact" }
