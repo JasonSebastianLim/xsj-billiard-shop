@@ -1,10 +1,17 @@
 ---
+import type { CollectionEntry } from 'astro:content'; 
 import type { Cue } from '../types';
-interface Props { cue: Cue; }
-const { cue } = Astro.props;
+
+type ProductData = CollectionEntry<'cues'>['data'] | Cue;
+
+interface Props { 
+  cue: ProductData;
+  slug: string; 
+}
+const { cue, slug } = Astro.props as Props;
 ---
 <a 
-  href={`/products/${cue.slug}`} 
+  href={`/products/${slug}`} 
   class="group relative block aspect-[3/4] overflow-hidden rounded-md transition-all duration-500 hover:shadow-2xl hover:shadow-accent/20 hover:-translate-y-2"
 >
   {cue.soldOut && (

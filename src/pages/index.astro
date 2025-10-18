@@ -5,9 +5,13 @@ import Featured from '../components/Featured.astro';
 import Promotions from '../components/Promotions.astro';
 import WhyChooseUs from '../components/WhyChooseUs.astro';
 import Testimonials from '../components/Testimonials.astro';
-import { allCues } from '../data/cues.ts';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-const featuredCues = allCues.slice(0, 3);
+const cues = await getCollection('cues');
+// Prefer items explicitly marked as featured, otherwise take the first 3
+const featuredCues = cues.filter(c => c.data.featured).slice(0, 3).length
+  ? cues.filter(c => c.data.featured).slice(0, 3)
+  : cues.slice(0, 3);
 ---
 
 <Layout title="XSJ Cues">

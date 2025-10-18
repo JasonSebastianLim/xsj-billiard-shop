@@ -1,55 +1,58 @@
 ---
-import { Image } from 'astro:assets';
-import promotionImageSrc from '../assets/Labubu.png'; 
+import { getEntry } from 'astro:content';
+
+const promo = await (getEntry as any)('promotions', 'homepage');
+
+const data = (promo as any)?.data ?? {};
+const title = data.title ?? 'Exclusive Offers';
+const tagline = data.tagline ?? 'Exclusive Offers';
+const description = data.description ?? '';
+const imageSrc = data.image ?? '/images/uploads/labubu.png';
+const feature1_title = data.feature1_title ?? 'Feature 1';
+const feature1_description = data.feature1_description ?? '';
+const feature2_title = data.feature2_title ?? 'Feature 2';
+const feature2_description = data.feature2_description ?? '';
+const button1_text = data.button1_text ?? 'Discover Offers';
+const button1_link = data.button1_link ?? '/promotions';
+const button2_text = data.button2_text ?? 'Contact Us';
+const button2_link = data.button2_link ?? '/contact';
 ---
 
 <section class="bg-background py-16 sm:py-24">
   <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
     
-    <div class="relative aspect-video lg:aspect-[4/3] rounded-lg overflow-hidden shadow-xl shadow-background/50
-            bg-background flex items-center justify-center"> <Image 
-    src={promotionImageSrc}
-    alt="Special promotion on a billiard cue"
-    class="object-contain w-full h-full" />
-</div>
+    <div class="relative aspect-video lg:aspect-[4/3] rounded-lg overflow-hidden shadow-xl shadow-background/50 bg-background flex items-center justify-center">
+      <img src={imageSrc} alt={title} class="object-contain w-full h-full" />
+    </div>
 
     <div>
-      <p class="font-heading text-sm uppercase tracking-widest text-accent mb-2">Exclusive Offers</p>
+      <p class="font-heading text-sm uppercase tracking-widest text-accent mb-2">{tagline}</p>
       <h2 class="font-heading text-4xl md:text-5xl text-text-primary tracking-wider uppercase leading-tight">
-        Elevate Your Game with Our <span class="text-accent">Special Deals</span>
+        {title.includes('Elevate') ? (<span>Elevate Your Game with Our <span class="text-accent">Special Deals</span></span>) : title}
       </h2>
-      <p class="text-text-secondary mt-4 max-w-lg">
-        Unlock your potential with our limited-time promotions. From bonus accessories to exclusive discounts, find the perfect offer to complement your next high-performance cue.
-      </p>
+      <p class="text-text-secondary mt-4 max-w-lg">{description}</p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
         <div>
           <div class="w-10 h-10 bg-accent/20 text-accent flex items-center justify-center rounded-md mb-3">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M12 18V6"></path><path d="M12 6a4 4 0 0 0-4 4"></path></svg>
           </div>
-          <h3 class="font-bold text-lg text-text-primary">Limited Time Bonuses</h3>
-          <p class="text-text-secondary text-sm mt-1">
-            Grab exclusive bonuses like custom chalk or gloves with select cue purchases.
-          </p>
+          <h3 class="font-bold text-lg text-text-primary">{feature1_title}</h3>
+          <p class="text-text-secondary text-sm mt-1">{feature1_description}</p>
         </div>
 
         <div>
           <div class="w-10 h-10 bg-accent/20 text-accent flex items-center justify-center rounded-md mb-3">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
-          <h3 class="font-bold text-lg text-text-primary">Secured Performance</h3>
-          <p class="text-text-secondary text-sm mt-1">
-            All promotional cues come with our standard warranty and expert support.
-          </p>
+          <h3 class="font-bold text-lg text-text-primary">{feature2_title}</h3>
+          <p class="text-text-secondary text-sm mt-1">{feature2_description}</p>
         </div>
       </div>
 
       <div class="mt-10 flex gap-4">
-        <a href="/promotions" class="bg-accent text-black font-bold uppercase py-3 px-8 rounded-sm transition-all duration-300 hover:bg-yellow-300 hover:scale-105 shadow-lg shadow-accent/20 hover:shadow-accent/40">
-          Discover Offers
-        </a>
-        <a href="/contact" class="border border-accent/30 text-accent/70 px-8 py-3 rounded-sm font-bold uppercase tracking-wider hover:bg-accent hover:text-black hover:border-accent transition-colors flex items-center gap-2">
-          Contact Us 
+        <a href={button1_link} class="bg-accent text-black font-bold uppercase py-3 px-8 rounded-sm transition-all duration-300 hover:bg-yellow-300 hover:scale-105 shadow-lg shadow-accent/20 hover:shadow-accent/40">{button1_text}</a>
+        <a href={button2_link} class="border border-accent/30 text-accent/70 px-8 py-3 rounded-sm font-bold uppercase tracking-wider hover:bg-accent hover:text-black hover:border-accent transition-colors flex items-center gap-2">{button2_text}
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </a>
       </div>

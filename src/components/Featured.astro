@@ -1,8 +1,11 @@
 ---
 import ProductCard from './ProductCard.astro';
-import type { Cue } from '../types';
-interface Props { cues: Cue[]; }
-const { cues } = Astro.props;
+import { getCollection, type CollectionEntry } from 'astro:content'; // 1. Import getCollection and CollectionEntry
+
+// 2. Fetch all cues and filter for featured ones
+const featuredCues = await getCollection('cues', ({ data }) => {
+  return data.featured === true; // Only get cues where featured is true in the CMS
+});
 ---
 <section id="featured-products" class="my-24 sm:my-32">
   <div class="text-center max-w-2xl mx-auto px-4">
@@ -21,9 +24,9 @@ const { cues } = Astro.props;
   </div>
 
   <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto px-4">
-    {cues.map(cue => (
-      <div data-category={cue.category}>
-        <ProductCard cue={cue} />
+    {featuredCues.map((cue: CollectionEntry<'cues'>) => (
+      <div data-category={cue.data.category}>
+        <ProductCard cue={cue.data} slug={cue.slug} />
       </div>
     ))}
   </div>

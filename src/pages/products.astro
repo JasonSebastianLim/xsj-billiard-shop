@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/ProductCard.astro';
-import { allCues } from '../data/cues.ts';
----
+import { getCollection, type CollectionEntry } from 'astro:content'; 
 
+const allCues = await getCollection('cues');
+---
 <Layout title="Our Collection">
   <div class="text-center pt-16 sm:pt-24 pb-12">
     <p class="font-heading text-sm uppercase tracking-widest text-accent">The Complete Collection</p>
@@ -13,7 +14,6 @@ import { allCues } from '../data/cues.ts';
     <p class="text-text-secondary mt-4 max-w-2xl mx-auto">
       Browse our entire inventory of world-class shafts and butts. Find the perfect tool to elevate your game.
     </p>
-
     <div id="category-toggle" class="inline-flex items-center bg-background p-1 rounded-md mt-8 border border-white/10">
       <button data-filter="butt" class="toggle-btn active-btn font-bold text-sm px-6 py-2 rounded">Butts</button>
       <button data-filter="shaft" class="toggle-btn font-bold text-sm px-6 py-2 rounded">Shafts</button>
@@ -21,9 +21,10 @@ import { allCues } from '../data/cues.ts';
   </div>
 
   <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 pb-24">
-    {allCues.map(cue => (
-      <div data-category={cue.category}>
-        <ProductCard cue={cue} />
+    {/* 2. Add the type annotation here */}
+    {allCues.map((cue: CollectionEntry<'cues'>) => ( 
+      <div data-category={cue.data.category}>
+        <ProductCard cue={cue.data} slug={cue.slug} />
       </div>
     ))}
   </div>
@@ -37,6 +38,7 @@ import { allCues } from '../data/cues.ts';
 </style>
 
 <script>
+  // Your script remains unchanged
   document.addEventListener('DOMContentLoaded', () => {
     const toggleButtons = document.querySelectorAll<HTMLElement>('.toggle-btn');
     const productCards = document.querySelectorAll<HTMLElement>('#product-grid > div');

@@ -1,27 +1,29 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { allCues } from '../../data/cues.ts';
-import type { Cue } from '../../types';
-
-interface Props {
-  cue: Cue;
-}
+import { getCollection, type CollectionEntry } from 'astro:content'; 
 
 export async function getStaticPaths() {
-  return allCues.map((cue) => ({
+  const allCues = await getCollection('cues');
+  return allCues.map((cue: CollectionEntry<'cues'>) => ({
     params: { slug: cue.slug },
     props: { cue },
   }));
 }
 
+interface Props {
+  cue: CollectionEntry<'cues'>;
+}
+
 const { cue } = Astro.props;
-const gallery = cue.galleryImages && cue.galleryImages.length > 0 ? cue.galleryImages : [cue.heroImage];
+const { Content } = await cue.render(); 
+const gallery = cue.data.galleryImages && cue.data.galleryImages.length > 0 ? cue.data.galleryImages : [cue.data.heroImage];
 ---
 
-<Layout title={cue.title}>
+<Layout title={cue.data.title}>
   <div class="container mx-auto max-w-5xl px-4 py-16 sm:py-24">
+    {/* 6. Access data with cue.data.title */}
     <div class="mb-8 text-sm text-text-secondary">
-      <a href="/" class="hover:text-accent">Home</a> / <a href="/products" class="hover:text-accent">Products</a> / <span class="text-text-primary">{cue.title}</span>
+      <a href="/" class="hover:text-accent">Home</a> / <a href="/products" class="hover:text-accent">Products</a> / <span class="text-text-primary">{cue.data.title}</span>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
@@ -31,30 +33,34 @@ const gallery = cue.galleryImages && cue.galleryImages.length > 0 ? cue.galleryI
           <img 
             id="main-image"
             class="w-full h-full object-cover object-top" 
-            src={cue.heroImage} 
-            alt={cue.title} 
+            src={cue.data.heroImage} 
+            alt={cue.data.title} 
           />
         </div>
         <div class="grid grid-cols-4 gap-4">
-          {gallery.map((imgSrc, index) => (
+          {gallery.map((imgSrc: string, index: number) => (
             <button class="thumbnail-item aspect-square rounded-md overflow-hidden border-2 border-transparent transition-colors hover:border-accent" data-src={imgSrc}>
-              <img src={imgSrc} alt={`${cue.title} - view ${index + 1}`} class="w-full h-full object-cover object-top" />
+              <img src={imgSrc} alt={`${cue.data.title} - view ${index + 1}`} class="w-full h-full object-cover object-top" />
             </button>
           ))}
         </div>
       </div>
       
       <div class="flex flex-col">
-        {cue.tagline && <p class="font-heading text-sm uppercase tracking-widest text-accent">{cue.tagline}</p>}
-        <h1 class="font-heading text-4xl lg:text-5xl mt-2 tracking-wider uppercase text-text-primary leading-tight">{cue.title}</h1>
-        <p class="text-3xl lg:text-4xl font-bold text-accent my-6">Rp{cue.price.toLocaleString('id-ID')}</p>
-        <p class="text-text-secondary leading-relaxed">{cue.description}</p>
+        {cue.data.tagline && <p class="font-heading text-sm uppercase tracking-widest text-accent">{cue.data.tagline}</p>}
+        <h1 class="font-heading text-4xl lg:text-5xl mt-2 tracking-wider uppercase text-text-primary leading-tight">{cue.data.title}</h1>
+        <p class="text-3xl lg:text-4xl font-bold text-accent my-6">Rp{cue.data.price.toLocaleString('id-ID')}</p>
+        
+        {/* 7. Use the Content component to render the Markdown body */}
+        <div class="prose prose-invert max-w-none text-slate-300 mb-8">
+          <Content />
+        </div>
 
-        {cue.specifications && (
+        {cue.data.specifications && (
           <div class="mt-8 pt-6 border-t border-white/10">
             <h3 class="font-heading text-lg uppercase tracking-wider text-text-primary mb-4">Specifications</h3>
             <div class="space-y-3 text-sm">
-              {Object.entries(cue.specifications).map(([key, value]) => (
+              {Object.entries(cue.data.specifications).map(([key, value]) => (
                 <div class="flex justify-between">
                   <span class="text-text-secondary">{key}:</span>
                   <span class="font-bold text-text-primary">{value}</span>
@@ -64,17 +70,17 @@ const gallery = cue.galleryImages && cue.galleryImages.length > 0 ? cue.galleryI
           </div>
         )}
 
-        {cue.soldOut ? (
+        {cue.data.soldOut ? (
           <div class="mt-8 pt-8 border-t border-white/10 text-center">
             <p class="font-bold text-red-500 text-lg">This item is currently sold out.</p>
             <p class="text-text-secondary text-sm mt-2">Please check back later or browse our other available cues.</p>
           </div>
         ) : (
           <div class="flex flex-col sm:flex-row gap-4 mt-8 pt-8 border-t border-white/10">
-            <a href={cue.whatsappLink} target="_blank" class="w-full sm:w-auto flex-grow text-center bg-accent text-black font-bold uppercase py-3 px-6 rounded-sm transition-all duration-300 hover:bg-yellow-300 hover:scale-105 shadow-lg shadow-accent/20">
+            <a href={cue.data.whatsappLink} target="_blank" class="w-full sm:w-auto flex-grow text-center bg-accent ...">
               Order via WhatsApp
             </a>
-            <a href={cue.facebookLink} target="_blank" class="w-full sm:w-auto flex-grow text-center border border-accent/30 text-accent/70 px-6 py-3 rounded-sm font-bold uppercase tracking-wider hover:bg-accent hover:text-black hover:border-accent transition-colors">
+            <a href={cue.data.facebookLink} target="_blank" class="w-full sm:w-auto flex-grow text-center border ...">
               View on Facebook
             </a>
           </div>
