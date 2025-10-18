@@ -6,7 +6,7 @@ price: 200000000
 heroImage: /images/uploads/predator-panthera.jpg
 whatsappLink: https://wa.me/+6282117822453
 category: butt
-featured: true
+featured: false
 tagline: LIMITED EDITION
 brandLogo: /images/uploads/predator-cues-seeklogo.png
 galleryImages:
