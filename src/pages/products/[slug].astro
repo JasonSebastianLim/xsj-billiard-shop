@@ -21,7 +21,6 @@ const gallery = cue.data.galleryImages && cue.data.galleryImages.length > 0 ? cu
 
 <Layout title={cue.data.title}>
   <div class="container mx-auto max-w-5xl px-4 py-16 sm:py-24">
-    {/* 6. Access data with cue.data.title */}
     <div class="mb-8 text-sm text-text-secondary">
       <a href="/" class="hover:text-accent">Home</a> / <a href="/products" class="hover:text-accent">Products</a> / <span class="text-text-primary">{cue.data.title}</span>
     </div>
@@ -51,7 +50,6 @@ const gallery = cue.data.galleryImages && cue.data.galleryImages.length > 0 ? cu
         <h1 class="font-heading text-4xl lg:text-5xl mt-2 tracking-wider uppercase text-text-primary leading-tight">{cue.data.title}</h1>
         <p class="text-3xl lg:text-4xl font-bold text-accent my-6">Rp{cue.data.price.toLocaleString('id-ID')}</p>
         
-        {/* 7. Use the Content component to render the Markdown body */}
         <div class="prose prose-invert max-w-none text-slate-300 mb-8">
           <Content />
         </div>
@@ -77,10 +75,10 @@ const gallery = cue.data.galleryImages && cue.data.galleryImages.length > 0 ? cu
           </div>
         ) : (
           <div class="flex flex-col sm:flex-row gap-4 mt-8 pt-8 border-t border-white/10">
-            <a href={cue.data.whatsappLink} target="_blank" class="w-full sm:w-auto flex-grow text-center bg-accent ...">
+            <a href={cue.data.whatsappLink} target="_blank" class="w-full sm:w-auto flex-grow text-center bg-accent text-black font-bold uppercase py-3 px-6 rounded-sm transition-all duration-300 hover:bg-yellow-300 hover:scale-105 shadow-lg shadow-accent/20">
               Order via WhatsApp
             </a>
-            <a href={cue.data.facebookLink} target="_blank" class="w-full sm:w-auto flex-grow text-center border ...">
+            <a href={cue.data.facebookLink} target="_blank" class="w-full sm:w-auto flex-grow text-center border border-accent/30 text-accent/70 px-6 py-3 rounded-sm font-bold uppercase tracking-wider hover:bg-accent hover:text-black hover:border-accent transition-colors">
               View on Facebook
             </a>
           </div>
