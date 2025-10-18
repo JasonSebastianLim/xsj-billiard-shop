@@ -5,7 +5,7 @@ description: iwaejfwfwfjnwafanwf
 price: 200000000
 heroImage: /images/uploads/predator-panthera.jpg
 whatsappLink: https://wa.me/+6282117822453
-category: shaft
+category: butt
 featured: true
 tagline: LIMITED EDITION
 brandLogo: /images/uploads/predator-cues-seeklogo.png
