@@ -1,12 +1,12 @@
 ---
-title: Classic Mapple Pro
+title: "Predator Panthera 6-1 "
 pubDate: 2025-10-18T02:01:00.000+07:00
-description: iwaejfwfwfjnwafanwf
-price: 200000000
+description: Predator Panthera 6-1 Like NEWWW!!!!
+price: 49000000
 heroImage: /images/uploads/predator-panthera.jpg
 whatsappLink: https://wa.me/+6282117822453
 category: butt
-featured: false
+featured: true
 tagline: LIMITED EDITION
 brandLogo: /images/uploads/predator-cues-seeklogo.png
 galleryImages:
@@ -15,11 +15,11 @@ galleryImages:
 specifications:
   brand: Predator
   cue_type: Butt
-  joint_type: idk
-  wrap_type: maybe
-  shaft_material: im
-  tip: just
-  weight: weird
-soldOut: true
+  joint_type: Radial
+  wrap_type: Leater Grip
+  shaft_material: Curly Mapple Wood
+  tip: "-"
+  weight: "-"
+soldOut: false
 ---
 This is literally the best cue I've seen
