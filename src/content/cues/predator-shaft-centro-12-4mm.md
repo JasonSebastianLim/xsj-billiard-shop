@@ -6,7 +6,7 @@ price: 8000000
 heroImage: /images/uploads/img_20250726_134105.jpg
 whatsappLink: https://wa.me/+6282117822453
 category: shaft
-featured: false
+featured: true
 tagline: "Centro Series "
 brandLogo: /images/uploads/predator-cues-seeklogo.png
 galleryImages:
