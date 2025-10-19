@@ -8,7 +8,7 @@ whatsappLink: https://wa.me/+6282117822453
 category: butt
 featured: false
 tagline: Jacoby Editions
-brandLogo: /images/uploads/images-2-.jpeg
+brandLogo: /images/uploads/logo-1739396366.jpg
 galleryImages:
   - /images/uploads/img-20250919-wa0106.jpg
   - /images/uploads/img-20250919-wa0096.jpg
