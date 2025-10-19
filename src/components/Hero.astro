@@ -1,37 +1,46 @@
-<section class="relative flex flex-col items-center justify-center min-h-screen text-center overflow-hidden">
+<section class="relative flex flex-col items-center justify-center min-h-[100dvh] text-center overflow-hidden">
   <div class="absolute inset-4 md:inset-6 -z-10 rounded-md overflow-hidden">
-    <video 
-      autoplay 
-      loop 
-      muted 
-      playsinline 
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
       src="/videos/Hero-video.mp4"
       class="w-full h-full object-cover saturate-50 brightness-50 animate-kenburns"
     >
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_20%,_var(--tw-color-background)_75%)] opacity-95"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_20%,_var(--tw-color-background)_75%)] opacity-95"></div>
+    </video>
   </div>
 
   <div class="absolute inset-4 md:inset-6 border border-white/10 rounded-md pointer-events-none"></div>
 
   <div class="absolute top-6 left-6 md:top-8 md:left-8 text-xs uppercase tracking-widest text-accent opacity-50">
-  Premium Grade Cues
+    Premium Grade Cues
   </div>
   <div class="absolute bottom-6 right-6 md:bottom-8 md:right-8 text-xs uppercase tracking-widest text-accent opacity-50">
     XSJ © 2025
   </div>
 
-  <div class="relative z-10 px-4">
-    <h1 class="font-heading text-6xl md:text-8xl font-bold tracking-wider uppercase text-text-primary animate-fade-in-up">
-      Find Your <span class="text-accent">Unfair Advantage.</span>
-    </h1>
-    <p class="text-text-secondary mt-4 max-w-2xl mx-auto animate-fade-in-up-delay">
-      Explore our hand-picked collection of world-class cues, chosen for their unparalleled performance and craftsmanship.
-    </p>
-    <a href="/products" class="inline-block mt-8 bg-accent text-black font-bold tracking-wide uppercase py-3 px-8 rounded-sm transition-all duration-300 hover:bg-yellow-300 hover:scale-105 shadow-lg shadow-accent/20 hover:shadow-accent/40">
-      View Collection
-    </a>
-  </div>
-  
+<div class="relative z-10 px-4 md:px-8 max-w-6xl mx-auto flex flex-col items-center justify-center text-center h-full">
+  <h1
+  class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-wider uppercase text-text-primary animate-fade-in-up
+         whitespace-normal md:whitespace-nowrap"
+>
+  <span class="block md:inline">Find Your</span>
+  <span class="block md:inline text-accent">Unfair Advantage.</span>
+  </h1>
+
+
+  <p class="text-text-secondary mt-4 md:mt-8 max-w-xs sm:max-w-md md:max-w-2xl mx-auto md:mx-0 text-sm md:text-lg leading-relaxed md:leading-tight animate-fade-in-up-delay">
+    Explore our hand-picked collection of world-class cues, chosen for their unparalleled
+    performance and craftsmanship.
+  </p>
+
+  <a href="/products" class="inline-block mt-8 md:mt-10 bg-accent text-black font-bold tracking-wide uppercase py-3 px-8 rounded-sm transition-all duration-300 hover:bg-yellow-300 hover:scale-105 shadow-lg shadow-accent/20 hover:shadow-accent/40">
+    View Collection
+  </a>
+</div>
+
   <div class="absolute bottom-8">
     <a href="#featured-products" class="inline-block animate-bounce text-text-secondary hover:text-accent transition-colors">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
@@ -51,10 +60,9 @@
     }
   }
 
-
   @keyframes kenburns {
     0% {
-      transform: scale(1.1); 
+      transform: scale(1.1);
     }
     100% {
       transform: scale(1.2);
