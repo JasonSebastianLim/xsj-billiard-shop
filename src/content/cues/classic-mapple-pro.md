@@ -20,6 +20,6 @@ specifications:
   shaft_material: Curly Mapple Wood
   tip: "-"
   weight: "-"
-soldOut: false
+soldOut: true
 ---
 This is literally the best cue I've seen
