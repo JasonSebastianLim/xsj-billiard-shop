@@ -1,7 +1,10 @@
 ---
 title: Predator Shaft Centro 12.4MM
 pubDate: 2025-10-19T19:57:00.000+07:00
-description: Like Neww Bossss
+description: The Predator Shaft Centro 12.4MM from the CENTRO SERIES is the
+  ultimate low-deflection upgrade, offering the surgical accuracy and confidence
+  that elite players demand. Acquire this tournament-ready shaft in 'Like New'
+  condition and immediately integrate world-class precision into your game.
 price: 8000000
 heroImage: /images/uploads/img_20250726_134105.jpg
 whatsappLink: https://wa.me/+6282117822453
@@ -20,4 +23,5 @@ specifications:
   tip: Victory Medium
 soldOut: false
 ---
-Predator Shaft Centro 12.4MM Like New
+
+The Predator Shaft Centro 12.4MM from the CENTRO SERIES is the ultimate low-deflection upgrade, offering the surgical accuracy and confidence that elite players demand. Acquire this tournament-ready shaft in 'Like New' condition and immediately integrate world-class precision into your game.
