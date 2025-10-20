@@ -5,7 +5,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 
 const allCues = await getCollection('cues');
 ---
-<Layout title="Our Collection">
+<Layout title="Our Collection – XSJ Billiard" description="Explore the complete collection of premium billiard cues at XSJ Billiard. Find high-performance shafts and butts to elevate your game.">
   <div class="text-center pt-16 sm:pt-24 pb-12">
     <p class="font-heading text-sm uppercase tracking-widest text-accent">The Complete Collection</p>
     <h1 class="font-heading text-4xl md:text-5xl mt-2 tracking-wider uppercase">
@@ -21,7 +21,6 @@ const allCues = await getCollection('cues');
   </div>
 
   <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 pb-24">
-    {/* 2. Add the type annotation here */}
     {allCues.map((cue: CollectionEntry<'cues'>) => ( 
       <div data-category={cue.data.category}>
         <ProductCard cue={cue.data} slug={cue.slug} />
@@ -38,7 +37,6 @@ const allCues = await getCollection('cues');
 </style>
 
 <script>
-  // Your script remains unchanged
   document.addEventListener('DOMContentLoaded', () => {
     const toggleButtons = document.querySelectorAll<HTMLElement>('.toggle-btn');
     const productCards = document.querySelectorAll<HTMLElement>('#product-grid > div');

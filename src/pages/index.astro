@@ -5,16 +5,18 @@ import Featured from '../components/Featured.astro';
 import Promotions from '../components/Promotions.astro';
 import WhyChooseUs from '../components/WhyChooseUs.astro';
 import Testimonials from '../components/Testimonials.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 const cues = await getCollection('cues');
-// Prefer items explicitly marked as featured, otherwise take the first 3
 const featuredCues = cues.filter(c => c.data.featured).slice(0, 3).length
   ? cues.filter(c => c.data.featured).slice(0, 3)
   : cues.slice(0, 3);
 ---
 
-<Layout title="XSJ Cues">
+<Layout 
+  title="XSJ Billiard – Premium & Elite Billiard Cues."
+  description="Discover expertly crafted, high-performance billiard cues and accessories from XSJ Billiard. Shop premium cues trusted by professionals."
+  url="https://xsjbilliard.com">
   
   <Hero slot="hero" />
 

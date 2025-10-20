@@ -12,7 +12,7 @@ const { cue, slug } = Astro.props as Props;
 ---
 <a 
   href={`/products/${slug}`} 
-  class="group relative block aspect-[3/4] overflow-hidden rounded-md transition-all duration-500 hover:shadow-2xl hover:shadow-accent/20 hover:-translate-y-2"
+  class="group relative block aspect-[3/4] overflow-hidden rounded-md transition-all duration-500 hover:shadow-2xl hover:shadow-accent/20 md:hover:-translate-y-2" 
 >
   {cue.soldOut && (
     <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold uppercase tracking-wider px-2 py-1 rounded z-20">
@@ -23,10 +23,10 @@ const { cue, slug } = Astro.props as Props;
   <img 
     src={cue.heroImage} 
     alt={cue.title} 
-    class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+    class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 md:group-hover:scale-105" 
   />
   
-  <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/60 to-transparent transition-colors duration-500 group-hover:from-background/95"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/60 to-transparent transition-colors duration-500 md:group-hover:from-background/95"></div> 
 
   {cue.brandLogo && (
     <div class="absolute top-4 right-4 bg-black/30 backdrop-blur-sm p-2 rounded-md">
@@ -34,18 +34,21 @@ const { cue, slug } = Astro.props as Props;
     </div>
   )}
 
-  <div class="relative flex flex-col justify-end h-full p-4 
-             transition-all duration-500 ease-in-out 
-             translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+  <div 
+    class="relative flex flex-col justify-end h-full p-4 
+           transition-all duration-500 ease-in-out 
+           opacity-100 translate-y-0 /* Visible by default (mobile) */
+           md:opacity-0 md:translate-y-12 /* Hidden on medium screens up */
+           md:group-hover:translate-y-0 md:group-hover:opacity-100 /* Reveal on hover on medium screens up */"
   >
     {cue.tagline && (
       <p class="text-xs uppercase text-accent tracking-widest mb-1">{cue.tagline}</p>
     )}
     
-    <h3 class="font-heading text-2xl tracking-wider uppercase text-text-primary">{cue.title}</h3>
+    <h3 class="font-heading text-xl sm:text-2xl tracking-wider uppercase text-text-primary">{cue.title}</h3>
     
-    <p class="text-sm text-text-secondary mt-2">{cue.description}</p>
+    <p class="text-xs sm:text-sm text-text-secondary mt-1 sm:mt-2">{cue.description}</p>
     
-    <p class="font-bold text-accent text-lg mt-4">Rp{cue.price.toLocaleString('id-ID')}</p>
+    <p class="font-bold text-accent text-base sm:text-lg mt-2 sm:mt-4">Rp{cue.price.toLocaleString('id-ID')}</p>
   </div>
 </a>
