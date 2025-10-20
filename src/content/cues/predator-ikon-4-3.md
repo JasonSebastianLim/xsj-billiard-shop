@@ -1,7 +1,10 @@
 ---
 title: Predator Ikon 4-3
 pubDate: 2025-10-19T19:20:00.000+07:00
-description: Predator Ikon 4-3 Like New Boskuu 🙏
+description: Acquire the iconic Predator Ikon 4-3, engineered for
+  championship-level control and known for its Uniloc precision and consistent
+  performance. Offered in a pristine 'Like New' condition, this IKON SERIES cue
+  is ready to become the flawless centerpiece of your serious billiards setup.
 price: 21000000
 heroImage: /images/uploads/img-20250930-wa0021.jpg
 whatsappLink: https://wa.me/+6282117822453
@@ -21,4 +24,5 @@ specifications:
   wrap_type: "Leather Grip Original "
 soldOut: false
 ---
-Predator Ikon 4-3 Like New Bosss 😍
+
+Acquire the iconic Predator Ikon 4-3, engineered for championship-level control and known for its Uniloc precision and consistent performance. Offered in a pristine 'Like New' condition, this IKON SERIES cue is ready to become the flawless centerpiece of your serious billiards setup.
