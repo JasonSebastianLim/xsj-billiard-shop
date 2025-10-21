@@ -1,9 +1,14 @@
 ---
-tagline: "  Exclusive Offers"
-title: Elevate Your Game with Our Special Deals
-description: "Unlock your potential with our limited-time promotions. From bonus
-  accessories to exclusive discounts, find the perfect offer to complement your
-  next high-performance cue. "
+tagline: Exclusive Offers. Offer valid for this month only.
+title: Monthly Special — Play Hard, Collect Harder!
+description: >-
+  This month, every purchase of a cue butt and shaft combo earns you a limited
+  Labubu figure — exclusively from XsJ Billiard.
+
+
+  Unbox your new gear and this adorable surprise while stocks last!
+
+  Because when you elevate your game, you deserve a little extra fun too.
 image: /images/uploads/labubu.png
 feature1_title: Limited Time Bonuses
 feature1_description: Enjoy exclusive rewards with select cue purchases — get a
