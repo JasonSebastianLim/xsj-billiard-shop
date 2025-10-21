@@ -6,10 +6,12 @@ description: "Unlock your potential with our limited-time promotions. From bonus
   next high-performance cue. "
 image: /images/uploads/labubu.png
 feature1_title: Limited Time Bonuses
-feature1_description: "Grab exclusive bonuses like custom chalk or gloves with
-  select cue purchases. "
+feature1_description: Enjoy exclusive rewards with select cue purchases — get a
+  chalk, 1x1 cue case, or extension as a special bonus for a limited time
 feature2_title: Secured Performance
-feature2_description: "All promotional cues come with our standard warranty and expert support. "
+feature2_description: All our products are guaranteed 100% original and safely
+  packaged, ensuring you receive only genuine and secure billiard equipment
+  every time.
 button1_text: Buy Collections
 button1_link: /products
 button2_text: Contact Us
