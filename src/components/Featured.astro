@@ -1,6 +1,6 @@
 ---
 import ProductCard from './ProductCard.astro';
-import { getCollection, type CollectionEntry } from 'astro:content'; // 1. Import getCollection and CollectionEntry
+import { getCollection, type CollectionEntry } from 'astro:content'; 
 
 // 2. Fetch all cues and filter for featured ones
 const featuredCues = await getCollection('cues', ({ data }) => {

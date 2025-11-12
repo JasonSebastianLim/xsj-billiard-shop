@@ -20,6 +20,25 @@ const cuesCollection = defineCollection({
   }),
 });
 
+const promotionsCollection = defineCollection({
+  type: 'content', 
+  schema: z.object({
+    tagline: z.string().optional(),
+    title: z.string().optional(),
+    description: z.string().optional(),
+    image: z.string().optional(),
+    feature1_title: z.string().optional(),
+    feature1_description: z.string().optional(),
+    feature2_title: z.string().optional(),
+    feature2_description: z.string().optional(),
+    button1_text: z.string().optional(),
+    button1_link: z.string().optional(),
+    button2_text: z.string().optional(),
+    button2_link: z.string().optional(),
+  }),
+});
+
 export const collections = {
   'cues': cuesCollection,
+  'promotions': promotionsCollection,
 };
