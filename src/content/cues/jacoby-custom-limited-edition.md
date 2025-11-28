@@ -2,7 +2,7 @@
 title: Jacoby Custom Limited Edition
 pubDate: 2025-10-19T19:48:00.000+07:00
 description: Full Set With Jacoby Shaft Ultra Pro + Cue case 1x1 + Chalk Taom and Magnet
-price: 22000000
+price: 19000000
 heroImage: /images/uploads/img-20250916-wa0013.jpg
 whatsappLink: https://wa.me/+6282117822453
 category: butt
