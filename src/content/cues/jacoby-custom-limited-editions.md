@@ -2,7 +2,7 @@
 title: Jacoby Custom Limited Editions
 pubDate: 2025-10-19T19:31:00.000+07:00
 description: Full Set Jacoby Ultra Shaft Pro + Extensions + PPF
-price: 25000000
+price: 22000000
 heroImage: /images/uploads/img-20250919-wa0106.jpg
 whatsappLink: https://wa.me/+6282117822453
 category: butt
