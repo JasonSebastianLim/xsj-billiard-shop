@@ -1,15 +1,10 @@
 ---
 tagline: Exclusive Offers. Offer valid for this month only.
-title: Monthly Special — Play Hard, Collect Harder!
-description: >-
-  This month, every purchase of a cue butt and shaft combo earns you a limited
-  Labubu figure — exclusively from XsJ Billiard.
-
-
-  Unbox your new gear and this adorable surprise while stocks last!
-
-  Because when you elevate your game, you deserve a little extra fun too.
-image: /images/uploads/labubu.png
+title: Black Friday!!!!
+description: 28 November until 5 December, XsJBilliard Gives Promo to New
+  Customer or Loyal Customer UP TO 25% From Original Price.The Price is now
+  UnderMarkettt.
+image: /images/uploads/discount-up-to-25-.png
 feature1_title: Limited Time Bonuses
 feature1_description: Enjoy exclusive rewards with select cue purchases — get a
   chalk, 1x1 cue case, or extension as a special bonus for a limited time
