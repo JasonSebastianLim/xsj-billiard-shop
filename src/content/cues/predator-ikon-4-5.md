@@ -20,7 +20,7 @@ specifications:
   cue_type: Ikon 4-5
   joint_type: Uniloc
   wrap_type: Elephant Grip
-soldOut: false
+soldOut: true
 ---
 
 Experience the seamless control and authoritative feedback of the Predator Ikon 4-5, featuring a high-traction Elephant Grip for an unmatched connection to your game. Secure this immaculate, 'Like New' cue for an exceptional price, making it a premier investment for any discerning player.
