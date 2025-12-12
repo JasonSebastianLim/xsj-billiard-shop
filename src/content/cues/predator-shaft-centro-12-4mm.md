@@ -20,7 +20,7 @@ specifications:
   cue_type: Centro 12.4MM
   joint_type: "Radial "
   tip: Victory Medium
-soldOut: false
+soldOut: true
 ---
 
 The Predator Shaft Centro 12.4MM from the CENTRO SERIES is the ultimate low-deflection upgrade, offering the surgical accuracy and confidence that elite players demand. Acquire this tournament-ready shaft in 'Like New' condition and immediately integrate world-class precision into your game.
