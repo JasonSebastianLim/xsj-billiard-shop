@@ -1,30 +1,38 @@
 ---
 tagline: Exclusive Offers. Offer valid for this month only.
-title: "Merry Christmas "
+title: Start the New Year with a Better Game
 description: >-
-  Level up your game this festive season! For a limited time, purchase any
-  premium cue shaft & butt combo and choose your FREE Christmas Gift: a premium
-  chalk, pro gloves, OR a stylish 1x1 billiard case! The perfect upgrade for
-  yourself or a stunning gift for a fellow player.
+  Welcome the Lunar New Year with renewed focus and top-tier performance.
+
+  For a limited time, enjoy exclusive Lunar New Year offers when you purchase selected premium cue shaft & butt combinations.
 
 
-  Why This is The Best Deal:
-
-  This isn't just a purchase; it's an investment in your game. You get a complete, high-performance cue setup AND essential accessories to complete your kit—all at a special holiday value.
+  🎁 FREE Lunar New Year Gift:
 
 
-  Hurry, Offer Valid Until December 31st!
-
-  Give the gift of a superior game. Visit our store or shop online to see the available combos and claim your bonus.
+  Premium chalk
 
 
-  Terms & Conditions:
-
-  -Offer valid on selected combos (Butt and Shaft) only.
+  Pro gloves
 
 
-  Promotion runs from 1 to December 31, 2025.
-image: /images/uploads/discount-up-to-25-1-.png
+  Elegant 1x1 cue case
+
+
+  This isn’t just a purchase — it’s an investment in your game.
+
+  Get a complete, high-performance cue setup plus essential accessories, all at a special Lunar New Year value.
+
+
+  🧧 A new year of precision, confidence, and winning shots begins here.
+
+  Offer valid for a limited time.
+
+  Terms & Conditions apply.
+
+
+  Promotion runs from 1 to February 31, 2026.
+image: /images/uploads/xsjbilliard.png
 feature1_title: Limited Time Bonuses
 feature1_description: Enjoy exclusive rewards with select cue purchases — get a
   chalk, 1x1 cue case, or extension as a special bonus for a limited time
