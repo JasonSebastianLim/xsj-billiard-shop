@@ -3,7 +3,7 @@ title: "Predator Panthera 6-1 "
 pubDate: 2025-10-18T02:01:00.000+07:00
 description: Predator Panthera 6-1 Like NEWWW!!!!
 price: 49000000
-heroImage: /images/uploads/predator-panthera.jpg
+heroImage: /images/uploads/panthera-detail-3.jpeg
 whatsappLink: https://wa.me/+6282117822453
 category: butt
 featured: true
